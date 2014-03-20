@@ -12,7 +12,7 @@ public class UsuarioDAO {
 
 	EntityManager em;
 
-	public UsuarioDAO(EntityManager em) {
+	public UsuarioDAO() {
 		super();
 		this.em = JPAUtil.getEntityManager();
 	}
