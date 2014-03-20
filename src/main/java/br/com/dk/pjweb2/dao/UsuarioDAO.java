@@ -1,6 +1,9 @@
 package br.com.dk.pjweb2.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import br.com.dk.pjweb2.entidade.Usuario;
 import br.com.dk.pjweb2.util.JPAUtil;
@@ -50,6 +53,17 @@ public class UsuarioDAO {
 		}
 		
 		em.close();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Usuario> buscarTodos(){
+		Query consulta = em.createQuery("select u from Usuario u");
+		return consulta.getResultList();
+	}
+	
+	public Usuario buscaPorId(Long id){
+		return em.find(Usuario.class, id);
+		
 	}
 
 }
