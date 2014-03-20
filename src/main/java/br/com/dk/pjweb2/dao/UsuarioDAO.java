@@ -39,5 +39,17 @@ public class UsuarioDAO {
 		
 		em.close();
 	}
+	
+	public void remove(Usuario usu){
+		try{
+			em.getTransaction().begin();
+			em.remove(usu);
+			em.getTransaction().commit();
+		}catch(Exception e){
+			em.getTransaction().rollback();
+		}
+		
+		em.close();
+	}
 
 }
